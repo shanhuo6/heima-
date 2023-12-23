@@ -15,10 +15,10 @@ if(tonumber(redis.call('get',stockKey)) <= 0) then
     return 1
 end
 ---判断用户是否已经下单 SISMENMBER orderKey userId
-if(redis.call('sismember',orderKey,userId) == 1) then
-    ---存在
-    return 2
-end
+--if(redis.call('sismember',orderKey,userId) == 1) then
+--    ---存在
+--    return 2
+--end
 ---扣库存
 redis.call('incrby',stockKey,-1)
 ---下单
